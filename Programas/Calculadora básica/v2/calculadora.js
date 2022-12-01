@@ -1,8 +1,6 @@
 // --@ts-check
 "use strict";
 
-var lista_funciones_operadores = [];
-var lista_operadores_texto = [];
 var lista_operadores = [];
 var inicializado = false;
 
@@ -11,6 +9,21 @@ function objeto_operador(funcion, texto, ayuda, operandos) {
     this.texto = texto;
     this.ayuda = ayuda;
     this.operandos = (operandos === undefined) ? 2 : operandos;
+};
+
+class Operador {
+    constructor(funcion, texto, ayuda) {
+        this.funcion = funcion;
+        this.texto = texto;
+        this.ayuda = ayuda;
+    }
+};
+
+class OperadorExtendido extends Operador {
+    constructor(funcion, texto, ayuda, operandos) {
+        super(funcion, texto, ayuda);
+        this.operandos = (operandos === undefined) ? 2 : operandos;
+    }
 };
 
 function inicializar_operadores() {
@@ -30,30 +43,13 @@ function inicializar_operadores() {
         ayuda: "Cambio de signo",
         operandos: 1,
     };
-
-
     lista_operadores.push(operador);
 
-    lista_funciones_operadores.push((op1, op2) => op1 + op2);
-    lista_operadores_texto.push("+");
+    operador = new Operador((op1, op2) => op1 * op2, "*");
+    lista_operadores.push(operador);
 
-    lista_funciones_operadores.push((op1, op2) => op1 * op2);
-    lista_operadores_texto.push("*");
-
-    lista_funciones_operadores.push(Math.pow);
-    lista_operadores_texto.push("^");
-
-    lista_funciones_operadores.push(Math.min);
-    lista_operadores_texto.push("min");
-
-    lista_funciones_operadores.push((op1) => -op1);
-    lista_operadores_texto.push("neg");
-
-    lista_funciones_operadores.push((op1, op2) => {
-        let rango = (op2 - op1) + 1;
-        return Math.trunc(Math.random() * rango) + op1;
-    });
-    lista_operadores_texto.push("random");
+    operador = new OperadorExtendido(Math.random, "0-1", "Obtiene un número aleatorio entre 0 y 1", 0);
+    lista_operadores.push(operador);
 }
 
 function on_combo_change_mostrar_ayuda() {
