@@ -1,9 +1,10 @@
+// @ts-check
 "use strict"
 
 /*---------------------------------------------------------------------------
          File: ej3.js
          Date: 2022/dec/19
-      Version: 1.0
+      Version: 1.1
   Description: Evaluación 1, ejercicio 3
        Author: (C) Santiago Aréchaga Tarruell, 2022
   ---------------------------------------------------------------------------*/
@@ -26,10 +27,29 @@ Inserta los elementos del array_elementos en la posición indicada en indice, "m
 Todas las funciones deben comprobar que los parámetros son válidos y no están fuera de rango.
 */
 
+/*
+Historial de revisiones:
+v1.1: añadidos comentarios y "tipado" @ts-check
+v1.0: versión incial
+*/
+
+/**
+ * Elimina el elemento del array en la posición indicada por `indice`, "moviendo" el resto de índices para no dejar "hueco"
+ * @param {any[]} array
+ * @param {number} indice
+ * @returns {void}
+ */
 function array_eliminar_elemento(array, indice) {
     array_eliminar_elementos(array, indice, 1);
 }
 
+/**
+ * Elimina tantos elementos del array como indique `numero` empezando en la posición indicada por `indice`, "moviendo" el resto de índices para no dejar "huecos"
+ * @param {any[]} array
+ * @param {number} indice
+ * @param {number} numero
+ * @returns {void}
+ */
 function array_eliminar_elementos(array, indice, numero) {
     if (!Array.isArray(array)) return;
     if ((indice < 0) || (indice >= array.length)) return;
@@ -46,6 +66,13 @@ function array_eliminar_elementos(array, indice, numero) {
     array.length -= numero;
 } // array_eliminar_elementos
 
+/**
+ * Inserta el elemento pasada en `elemento` en la posición indicada en `indice`, "moviendo" previamente el resto de los elementos para hacer "hueco"
+ * @param {any[]} array
+ * @param {number} indice
+ * @param {any} elemento
+ * @returns {void}
+ */
 function array_insertar_elemento(array, indice, elemento) {
     if (!Array.isArray(array)) return;
     if (indice < 0) return;
@@ -64,6 +91,13 @@ function array_insertar_elemento(array, indice, elemento) {
     array[indice] = elemento;
 } // array_insertar_elemento
 
+/**
+ * Inserta los elementos del array `elementos` en la posición indicada en `indice`, "moviendo" previamente el resto de los elementos para hacer "hueco"
+ * @param {any[]} array
+ * @param {number} indice
+ * @param {any[]} elementos
+ * @returns {void}
+ */
 function array_insertar_elementos(array, indice, elementos) {
     if (!Array.isArray(array)) return;
     if (!Array.isArray(elementos)) return;

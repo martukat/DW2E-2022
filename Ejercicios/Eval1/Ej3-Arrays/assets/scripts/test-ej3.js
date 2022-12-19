@@ -1,3 +1,5 @@
+// @ts-check
+
 window.addEventListener("load", ejecutar_tests_ejercio3);
 
 function ejecutar_tests_ejercio3() {
