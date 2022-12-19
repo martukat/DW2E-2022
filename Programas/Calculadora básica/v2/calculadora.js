@@ -50,6 +50,18 @@ function inicializar_operadores() {
 
     operador = new OperadorExtendido(Math.random, "0-1", "Obtiene un número aleatorio entre 0 y 1", 0);
     lista_operadores.push(operador);
+
+    operador = new Operador((op1, op2) => op1 % op2, "%", "Módulo (resto de división)");
+    lista_operadores.push(operador);
+
+    operador = new Operador((op1, op2) => Math.trunc(op1 /  op2), "\\", "División entera");
+    lista_operadores.push(operador);
+
+    operador = new Operador((op1, op2) => {
+            let rango = (op2 - op1) + 1;
+            return Math.trunc((Math.random() * rango)) + op1;
+        }, "?", "Número aleatorio (mínimo y máximo)");
+    lista_operadores.push(operador);
 }
 
 function on_combo_change_mostrar_ayuda() {
@@ -59,8 +71,7 @@ function on_combo_change_mostrar_ayuda() {
     let operador = lista_operadores[indice];
 
     let ayuda = window.document.getElementById("ayuda");
-    let texto_ayuda = operador.ayuda;
-    ayuda.textContent = (texto_ayuda === undefined) ? "No hay ayuda disponible" : texto_ayuda;
+    ayuda.textContent = ("ayuda" in operador) ? operador.ayuda : "No hay ayuda disponible";
 } // on_combo_change_mostrar_ayuda
 
 function on_combo_change_habilitar_operandos() {
