@@ -1,5 +1,31 @@
 "use strict"
 
+/*---------------------------------------------------------------------------
+         File: ej3.js
+         Date: 2022/dec/19
+      Version: 1.0
+  Description: Evaluación 1, ejercicio 3
+       Author: (C) Santiago Aréchaga Tarruell, 2022
+  ---------------------------------------------------------------------------*/
+
+/*
+Escribe las siguientes funciones para manipular arrays. Todas las funciones operan sobre el array indicado (no crean ni devuelven un nuevo array) y no utilizan arrays intermedios, realizando todas las manipulaciones necesarias directamente sobre el array:
+
+1. array_eliminar_elemento(array, indice)
+Elimina el elemento del array en la posición indicada por índice, "moviendo" el resto de índices para no dejar "hueco"
+
+2. array_eliminar_elementos(array, indice, numero)
+Elimina tantos elementos del array como indique numero empezando en la posición indicada por índice, "moviendo" el resto de índices para no dejar "huecos"
+
+3. array_insertar_elemento(array, indice, elemento)
+Inserta el elemento en la posición indicada en indice, "moviendo" previamente el resto de los elementos para hacer "hueco"
+
+4. array_insertar_elementos(array, indice, array_elementos)
+Inserta los elementos del array_elementos en la posición indicada en indice, "moviendo" previamente el resto de los elementos para hacer "hueco"
+
+Todas las funciones deben comprobar que los parámetros son válidos y no están fuera de rango.
+*/
+
 function array_eliminar_elemento(array, indice) {
     array_eliminar_elementos(array, indice, 1);
 }
