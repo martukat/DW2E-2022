@@ -10,6 +10,8 @@
 
 class TipoBarco {
     /**
+     * GENERACIÓN DEL OBJETO Y TIPO DEL BARCO
+     *
      * @param {string} nombre
      * @param {number} longitud
      * @param {number} cantidad
@@ -17,7 +19,7 @@ class TipoBarco {
      */
     constructor(nombre, longitud, cantidad, inicial) {
         // validaciones
-        if (isNaN(longitud) || (longitud < 1)) throw new RangeError("longitud");
+        if (isNaN(longitud) || (longitud < 1)) throw new RangeError("longitud"); // gestión de errores: throw lanza errores
         if (isNaN(cantidad) || (cantidad < 1)) throw new RangeError("cantidad");
         if (nombre.length < 1) throw new RangeError("nombre");
         if (inicial.length < 1) throw new RangeError("inicial");
@@ -37,13 +39,15 @@ class ConfiguracionJuego {
      * @param {number} ancho
      * @param {number} alto
      * @param {TipoBarco[] | null | undefined} [flota]
+     * 
+     * SE ADMITE O BIEN UN ARRAY DE TIPO NULL O BIEN UNDEFINED: se pueden pasar de esta forma solo dos parámetros, por lo que es opcional el tercero
      */
     constructor(ancho, alto, flota) {
         // validaciones
         if (isNaN(ancho) || (ancho < 1)) throw new RangeError("ancho");
         if (isNaN(alto) || (alto < 1)) throw new RangeError("alto");
 
-        // flota
+        // flota, en caso de que se ignore el tercer parámetro
         if ((flota === undefined) || (flota == null)) {
             flota = ConfiguracionJuego.obtenerFlotaClasica();
         } // if
@@ -55,6 +59,8 @@ class ConfiguracionJuego {
     } // constructor
 
     /**
+     * Si no se pone nada en el tercer argumento, se escribe esta flota clásica
+     * 
      * @returns {TipoBarco[]}
      */
     static obtenerFlotaClasica() {
@@ -69,7 +75,9 @@ class ConfiguracionJuego {
         return flota;
     } // obtenerFlotaClasica
 
-    /**
+    /** 
+     * Al menos se necesita un tablero de 10 x 10 para jugar esta configuración
+     * 
      * @returns {TipoBarco[]}
      */
     static obtenerFlotaAmpliada() {
@@ -101,7 +109,7 @@ class RectanguloBarco {
     } // constructor
 
     /** @type {number} */
-    x1;
+    x1; // representa la coordenada de una esquina
     /** @type {number} */
     x2;
     /** @type {number} */
@@ -124,7 +132,7 @@ class RectanguloBarco {
 } // class RectanguloBarco
 
 // ------------------------------------------------------------------
-// Clase PosicionBarco
+// Clase PosicionBarco - son funciones AUXILIARES
 
 class PosicionBarco {
     /**
@@ -141,15 +149,15 @@ class PosicionBarco {
     } // constuctor
 
     /** @type {number} @private @readonly */
-    _x;
+    _x; // se refuerza con typescript, ya que JS no tiene clases privadas
     /** @type {number} @private @readonly */
-    _y;
+    _y; // RECORDEMOS que el guión bajo es para indicarle a TypeScript
     /** @type {boolean} @private @readonly */
     _vertical;
     /** @type {number} @private @readonly */
     _longitud;
 
-    /** @returns {number} */
+    /** @returns {number} */ // cada uno de estas líneas para JS no existe
     get x() { return this._x; }
     /** @returns {number} */
     get y() { return this._y; }
@@ -159,6 +167,8 @@ class PosicionBarco {
     get longitud() { return this._longitud; }
 
     /**
+     * Indica en qué zona del rectángulo está el barco
+     * 
      * @param {RectanguloBarco} rectangulo
      * @returns {void}
      */
@@ -171,6 +181,8 @@ class PosicionBarco {
     } // calcular_rectangulo
 
     /**
+     * Indica en qué zona del barco está rodeado con todas las aguas incluidas
+     * 
      * @param {RectanguloBarco} rectangulo
      * @param {ConfiguracionJuego} config
      * @returns {void}
@@ -196,6 +208,8 @@ class PosicionBarco {
 
 class Barco {
     /**
+     * Métodos privados
+     * 
      * @param {TipoBarco} tipo
      * @param {PosicionBarco} posicion
      * @param {number} numero
@@ -204,7 +218,7 @@ class Barco {
         this._tipo = tipo;
         this._posicion = posicion;
         this._numero = numero;
-        this._disparos = new Array(tipo.longitud).fill(false);
+        this._disparos = new Array(tipo.longitud).fill(false); // fill devuelve un nuevo array y lo rellena
         this._hundido = false;
     } // constuctor
 
@@ -229,6 +243,8 @@ class Barco {
     get hundido() { return this._hundido; }
 
     /**
+     * Propiedades para acceder
+     *
      * @param {number} posicion
      * @returns {boolean}
      */
@@ -237,7 +253,7 @@ class Barco {
             throw new RangeError();
         } // if
 
-        return this._disparos[posicion - 1];
+        return this._disparos[posicion - 1]; // desde el punto de vista del programador
     } // esta_tocado
 
     /**
@@ -264,6 +280,8 @@ class Barco {
     } // disparo
 
     /**
+     * Es por si se quiere resetear el barco y empezar desde 0
+     * 
      * @returns {void}
      */
     reset() {
@@ -275,7 +293,7 @@ class Barco {
 } // class Barco
 
 // ------------------------------------------------------------------
-// Clase BarcoTablero
+// Clase BarcoTablero - almacena temporalmente un barco y una posición
 
 class BarcoTablero {
     /**
@@ -306,7 +324,7 @@ class BarcoTablero {
 } // class BarcoTablero
 
 // ------------------------------------------------------------------
-// Clase TableroJuego
+// Clase TableroJuego - genera el tablero del juego
 
 class TableroJuego extends Object {
     /**
@@ -339,6 +357,8 @@ class TableroJuego extends Object {
     get numero_barcos() { return this._barcos.length; }
 
     /**
+     * Se encapsula la información
+     * 
      * @param {number} x
      * @param {number} y
      * @returns {BarcoTablero | null}
@@ -379,7 +399,7 @@ class TableroJuego extends Object {
 } // class TableroJuego
 
 // ------------------------------------------------------------------
-// Clase GeneradorTableroJuego
+// Clase GeneradorTableroJuego - cuántas veces se puede volver a generar el tablero
 
 class GeneradorTableroJuego {
     /**
@@ -414,6 +434,8 @@ class GeneradorTableroJuego {
     _ocupado;
 
     /**
+     * Este código plantea reciclar código para evitar perder memoria, de ahí a que sea más complejo
+     * 
      * @param {ConfiguracionJuego} config
      * @param {number | undefined} [intentos]
      * @returns {GeneradorTableroJuego | null}
@@ -433,6 +455,8 @@ class GeneradorTableroJuego {
     } // intentar_generar
 
     /**
+     * Esto evita un bucle infinito
+     * 
      * @private
      * @returns (Array<BarcoTablero | null>[]}
      */
@@ -517,11 +541,11 @@ class GeneradorTableroJuego {
      * @param {number} longitud
      */
     _obtener_posicion_valida(longitud) {
-        // obtenemos una posición válida
+        // obtenemos una posición válida para el barco
         let contador = 0;
         while (true) {
             this._posicion = new PosicionBarco(
-                obtener_numero_aleatorio(1, this._config.ancho) - 1,
+                obtener_numero_aleatorio(1, this._config.ancho) - 1, // como son arrays, van de 0 a n y se resta un número siempre
                 obtener_numero_aleatorio(1, this._config.alto) - 1,
                 (longitud == 1) ? false : Math.random() >= 0.5,
                 longitud);
@@ -530,7 +554,7 @@ class GeneradorTableroJuego {
 
             if (this._validar_posicion()) return true;
 
-            // excedido el número de intentos?
+            // excedido el número de intentos? No se encuentra posición
             contador++;
             if (contador > 1000) return false;
         } // while
@@ -541,7 +565,7 @@ class GeneradorTableroJuego {
      * @returns {boolean}
      */
     _validar_posicion() {
-        // la casilla de inicio está libre?
+        // la casilla de inicio está libre? Voy a dar en agua?
         if (this._ocupado[this._posicion.y][this._posicion.x]) return false;
 
         // cabe?
@@ -560,7 +584,7 @@ class GeneradorTableroJuego {
         // validamos si el rectangulo completo del barco está libre
         for (let y = this._rectangulo_completo.y1; y <= this._rectangulo_completo.y2; y++) {
             for (let x = this._rectangulo_completo.x1; x <= this._rectangulo_completo.x2; x++) {
-                if (this._ocupado[y][x]) return false;
+                if (this._ocupado[y][x]) return false; / es una posición
             } // for x
         } // for y
 
@@ -576,7 +600,7 @@ class GeneradorTableroJuego {
         let posicion = 1;
         for (let y = this._rectangulo.y1; y <= this._rectangulo.y2; y++) {
             for (let x = this._rectangulo.x1; x <= this._rectangulo.x2; x++) {
-                this._tablero[y][x] = new BarcoTablero(barco, posicion++);
+                this._tablero[y][x] = new BarcoTablero(barco, posicion++); // el barco está ocupado
                 this._ocupado[y][x] = true;
             } // for x
         } // for y
