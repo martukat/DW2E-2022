@@ -1,0 +1,432 @@
+﻿<style>
+* { font-family: Verdana, Geneva, Tahoma, sans-serif; }
+pre { background: #e0e0e0; max-width: 100%; overflow-x: auto; }
+code { font-family: 'Consolas', 'Courier New', Courier, monospace; background: #e0e0e0; padding: 0.15em; display: inline-block; }
+</style>
+<h1 id="ejercicios-opcionales-para-navidad">EJERCICIOS OPCIONALES PARA NAVIDAD</h1>
+<ul>
+    <li>
+        <a href="#de-las-piramides-a-cleopatra">De las pirámides a Cleopatra</a><ul>
+            <li><a href="#de-las-piramides-a-cleopatra-version-2">Versión 2</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#numeros-jeroglificos">Número jeroglíficos</a><ul>
+            <li><a href="#numeros-jeroglificos-version-2">Versión 2</a></li>
+            <li><a href="#numeros-jeroglificos-version-3">Versión 3</a></li>
+        </ul>
+    </li>
+    <li><a href="#la-altura-de-la-piramide">La altura de la pirámide</a></li>
+    <li>
+        <a href="#los-tesoros-de-la-tumba-de-tutankamon">Los tesoros de la tumba de Tutankamón</a><ul>
+            <li><a href="#los-tesoros-de-la-tumba-de-tutankamon-version-2">Versión 2</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#tabla-rosetta-champollion">Tabla Rosetta (Champollion)</a><ul>
+            <li><a href="#tabla-rosetta-champollion-version-2">Versión 2</a></li>
+            <li><a href="#tabla-rosetta-champollion-version-3">Versión 3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#el-tarot-egipcio">El tarot egipcio</a><ul>
+            <li><a href="#el-tarot-egipcio-version-2">Versión 2</a></li>
+        </ul>
+    </li>
+</ul>
+<p>
+    Los ejercicios se entregarán todos juntos como archivos sueltos en la misma carpeta.
+    <strong>NO SE ADMITEN</strong> archivos comprimidos o en carpetas
+</p>
+<hr>
+<h2 id="de-las-piramides-a-cleopatra">De las pirámides a Cleopatra</h2>
+<h3 id="descripción-general">Descripción general</h3>
+<p><a href="https://www.aceptaelreto.com/problem/statement.php?id=657&amp;cat=154">https://www.aceptaelreto.com/problem/statement.php?id=657&amp;cat=154</a></p>
+<h3 id="adaptación-a-javascript-y-dwec">Adaptación a JavaScript y DWEC</h3>
+<p>En lugar de leer de la entrada estándar (stdin) y utilizar la consola, escribir únicamente una función,</p>
+<pre><code>/**
+ * @param {any} numA
+ * @param {any} numB
+ * @param {any} numC
+ * @return {number}
+ */
+function fecha_mas_cercana(numA, numB, numC)
+</code></pre>
+<p>donde <code>numA</code>, <code>numB</code> y <code>numC</code> hacen referencia a los números A, B y C del enunciado.</p>
+<p>Esta función:</p>
+<ul>
+    <li>
+        Deberá validar la entrada<ul>
+            <li>Se asegurará de que los parámetros sean números y que sean válidos</li>
+            <li>Que ninguno sea 0 o esté fuera de rango</li>
+            <li>Que se cumpla que A &lt; B &lt; C</li>
+            <li>Si no valida, devolverá NaN</li>
+        </ul>
+    </li>
+    <li>
+        Devolverá<ul>
+            <li>El número que cumple lo pedido en el enunciado</li>
+            <li>En caso de empate, devolverá 0</li>
+        </ul>
+    </li>
+</ul>
+<h3 id="recomendación">Recomendación</h3>
+<p>
+    Escribe una función auxiliar que calcula la &quot;distancia&quot; entre dos fechas.
+    <strong>Recuerda:</strong> El año 0 no existe
+</p>
+<h3 id="entrega">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>de-las-piramides-a-cleopatra.js</code></li>
+</ul>
+<hr>
+<h2 id="de-las-piramides-a-cleopatra-version-2">De las pirámides a Cleopatra, versión 2</h2>
+<p>Se trata de una ampliación del anterior programa, haciendo una página web que utilice la función anterior.</p>
+<p>
+    En particular, dispondrá de 3 campos <code>input</code> de tipo texto, correspondientes a los números A, B y C
+    con sus correspondientes <code>&lt;label&gt;</code> y un botón de &quot;calcular&quot;.
+</p>
+<p>Al pulsar dicho botón, mostrará en una tabla a continuación el resultado de la ejecución del modo siguiente:</p>
+<ul>
+    <li>La tabla tendrá una cabecera <code>&lt;thead&gt;</code> con las columnas &quot;A&quot;, &quot;B&quot;, &quot;C&quot; y &quot;Resultado&quot;</li>
+    <li>Dicha tabla no debe mostrarse hasta que se ejecute por lo menos una vez la función de cálculo</li>
+    <li>Se añadirá al final de la tabla los 3 valores introducidos por el usuario para A, B y C, junto con el resultado de ejecutar la función</li>
+    <li>Se podrá utilizar el botón de &quot;calcular&quot; tantas veces como se quiera</li>
+</ul>
+<h3 id="entrega-1">Entrega</h3>
+<ul>
+    <li>
+        Un único archivo .js con el código estrictamente necesario para la versión 2, llamado <code>de-las-piramides-a-cleopatra-parte-2.js</code><ul>
+            <li>No debe incluir el código de la función de cálculo</li>
+        </ul>
+    </li>
+    <li>
+        Un único archivo .html con el código web, llamado <code>de-las-piramides-a-cleopatra.html</code><ul>
+            <li>Deberá, obviamente, referenciar <code>de-las-piramides-a-cleopatra.js</code></li>
+        </ul>
+    </li>
+</ul>
+<hr>
+<h2 id="numeros-jeroglificos">Números jeroglíficos</h2>
+<h3 id="descripción-general-1">Descripción general</h3>
+<p><a href="https://www.aceptaelreto.com/problem/statement.php?id=659&amp;cat=154">https://www.aceptaelreto.com/problem/statement.php?id=659&amp;cat=154</a></p>
+<h3 id="adaptación-a-javascript-y-dwec-1">Adaptación a JavaScript y DWEC</h3>
+<p>En lugar de leer de la entrada estándar (stdin) y utilizar la consola, escribir únicamente una función,</p>
+<pre><code>/**
+ * @param {number} numero 
+ * @returns {string}
+ */
+function numeros_jeroglificos(numero)
+</code></pre>
+<p>que tome como entrada un número y devuelva la cadena de texto correspondiente.</p>
+<p>
+    La función recibe un parámetro que se garantiza que sea de tipo numérico entero (sin decimales), pero deberá validar la entrada,
+    no admitiendo números NaN o menores de 1, devolviendo la cadena vacía en este caso
+</p>
+<h3 id="enlaces-de-utilidad">Enlaces de utilidad</h3>
+<ul>
+    <li>Número egipcios: <a href="https://en.wikipedia.org/wiki/Egyptian_numerals">https://en.wikipedia.org/wiki/Egyptian_numerals</a></li>
+</ul>
+<h3 id="entrega-2">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado &quot;numeros-jeroglificos.js&quot;</li>
+</ul>
+<hr>
+<h2 id="numeros-jeroglificos-version-2">Números jeroglíficos, versión 2</h2>
+<p>Una ampliación del anterior.</p>
+<p>La función tendrá la siguiente signatura:</p>
+<pre><code>/**
+ * @param {number} numero 
+ * @returns {{numero: number, simbolico: string, jeroglifico: string}}
+ */
+ function numeros_jeroglificos_v2(numero)
+</code></pre>
+<p>y devuelve un objeto con 3 propiedades con los tipos indicados en la anotación <em>typescript</em>, donde</p>
+<ul>
+    <li><code>numero</code> es el número introducido,</li>
+    <li><code>simbolico</code> es la representación del número en texto</li>
+    <li><code>jeroglífico</code> es la representación del número utilizando jeroglíficos (utilizando los códigos Unicode estandarizados para jeroglíficos)</li>
+</ul>
+<h3 id="enlaces-de-utilidad-1">Enlaces de utilidad</h3>
+<ul>
+    <li>Lista de jeroglíficos egipcios: <a href="https://en.wikipedia.org/wiki/List_of_Egyptian_hieroglyphs">https://en.wikipedia.org/wiki/List_of_Egyptian_hieroglyphs</a></li>
+    <li>Correspondencia con la lista de signos de Gardiner y Unicode: <a href="https://en.wikipedia.org/wiki/List_of_Egyptian_hieroglyphs#List_of_hieroglyphs">https://en.wikipedia.org/wiki/List_of_Egyptian_hieroglyphs#List_of_hieroglyphs</a></li>
+    <li>Uso de Unicode en cadenas de texto en JavaScript: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_sequences">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_sequences</a></li>
+</ul>
+<h3 id="recomendación-1">Recomendación</h3>
+<p>
+    Crea internamente un array de objetos con una estructura similar al objeto de salida, pero únicamente para las
+    potencias de 10
+</p>
+<h3 id="entrega-3">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado &quot;numeros-jeroglificos-v2.js&quot;</li>
+</ul>
+<hr>
+<h2 id="numeros-jeroglificos-version-3">Números jeroglíficos, versión 3</h2>
+<p>
+    Escribir una página sencilla HTML que utilice las funciones de la versión 2
+    La página tendrá un INPUT de tipo numérico y un botón de &quot;convertir&quot;
+</p>
+<p>
+    Al pulsar el botón, se convertirá el número a &quot;egipcio&quot; y se añadirá a una tabla a continuación del formulario
+    Esta tabla tendrá 3 columnas: número, representación simbólica, representación en jeroglífico
+    Cada cálculo nuevo se añadirá al <em>principio</em> de la tabla (<code>element.prepend()</code>)
+</p>
+<p>
+    Para la celda con el texto &quot;jeroglífico&quot; utiliza una clase CSS llamada &quot;jeroglifico&quot;, cuya definición se añadirá directamente
+    en el <code>&lt;head&gt;</code> como <code>.jeroglifico { font-family: sans-serif ; font-size: 3em; }</code>.
+</p>
+<p>En Windows 10 con Edge se ven correctamente los jeroglíficos utilizando este CSS (ver archivos adjuntos &#39;jeroglificos.html&#39; y &#39;jeroglificos.png&#39;)</p>
+<h3 id="entrega-4">Entrega</h3>
+<ul>
+    <li>
+        Un único archivo .js con el código estrictamente necesario para la versión 3, llamado &quot;numeros-jeroglificos-parte-3.js&quot;<ul>
+            <li>No debe incluir el código de la versión 2</li>
+        </ul>
+    </li>
+    <li>
+        Un único archivo .html con el código web, llamado &quot;numeros-jeroglificos.html&quot;<ul>
+            <li>Deberá, obviamente, referenciar &quot;numeros-jeroglificos-parte-2.js&quot;</li>
+        </ul>
+    </li>
+    <li>No habrá archivo de CSS</li>
+</ul>
+<hr>
+<h2 id="la-altura-de-la-piramide">La altura de la pirámide</h2>
+<h3 id="descripción-general-2">Descripción general</h3>
+<p><a href="https://www.aceptaelreto.com/problem/statement.php?id=658&amp;cat=154">https://www.aceptaelreto.com/problem/statement.php?id=658&amp;cat=154</a></p>
+<p>
+    La descripción del enunciado es muy ambigua cuando habla de &quot;huecos&quot;.
+    Para evitar esta ambigüedad, se modifica el ejercicio como se indica a continuación
+</p>
+<h3 id="adaptación-a-javascript-y-dwec-2">Adaptación a JavaScript y DWEC</h3>
+<p>Escribir una función JS con la siguiente signatura, que calcula la áltura máxima de la pirámide</p>
+<pre><code>/**
+ * @param {number} bloques
+ * @param {number} huecos
+ * @returns {number}
+ */
+function altura_maxima_piramide(bloques, huecos)
+</code></pre>
+<p>Donde</p>
+<ul>
+    <li>
+        <code>bloques</code> es un número entero válido garantizado con la cantidad de bloques de piedra utilizados
+        para la construcción de una pirámide siguiendo la disposición descrita
+    </li>
+    <li><code>huecos</code> es un número con decimales válido entre <code>0.0</code> y <code>50.0</code> que indica que un porcentaje de huecos máximos por nivel</li>
+</ul>
+<h3 id="aclaraciones">Aclaraciones</h3>
+<ul>
+    <li>
+        Para no andar con complicados cálculos matemáticos de arquitectura de cómo podrían estar dispuestos los huecos dentro de la pirámide,
+        vamos &quot;a tirar por la calle de en medio&quot; asumiendo que en cada nivel puede haber un número máximo de huecos.
+    </li>
+    <li>
+        Este número de huecos vendrá dado por el porcentaje <code>huecos</code> y variará, obviamente, en función de la altura.
+        El número de huecos tendrá que ser un número entero a la baja calculado sobre el número de bloques necesarios para cada nivel
+    </li>
+    <li>
+        Puede suceder que falten bloques de piedra para construir el &quot;último&quot; nivel.
+        Si no hay suficientes bloques para el nivel, éste no se puede construir y, por tanto, la pirámide no tendrá esa altura máxima
+    </li>
+    <li>Recuerda: se trata de calcular la altura máxima</li>
+</ul>
+<h3 id="entrega-5">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>la-altura-de-la-piramide.js</code></li>
+</ul>
+<h3 id="variante-2-opcional">Variante 2 (opcional)</h3>
+<pre><code>/**
+ * @param {number} bloques
+ * @param {number} huecos
+ * @returns {{altura: number, sobran: number, faltan: number}}
+ */
+function altura_maxima_piramide_v2(bloques, huecos)
+</code></pre>
+<p>Es básicamente la misma función, pero devolviendo un objeto con tres propiedades de tipo number:</p>
+<ul>
+    <li><code>altura</code>: la altura máxima de la pirámide dados los bloques y el porcentaje de huecos</li>
+    <li><code>sobran</code>: el número de bloques (o 0) que sobran</li>
+    <li><code>faltan</code>: el número de bloques (o 0) que faltan para poder construir un nivel más en la pirámide</li>
+</ul>
+<hr>
+<h2 id="los-tesoros-de-la-tumba-de-tutankamon">Los tesoros de la tumba de Tutankamón</h2>
+<h3 id="descripción-general-3">Descripción general</h3>
+<p><a href="https://www.aceptaelreto.com/problem/statement.php?id=661&amp;cat=154">https://www.aceptaelreto.com/problem/statement.php?id=661&amp;cat=154</a></p>
+<h3 id="adaptación-a-javascript-y-dwec-3">Adaptación a JavaScript y DWEC</h3>
+<p>Se creará una función</p>
+<pre><code>/**
+ * @param {string | string[] | {nombre: string, valor: number, peso: number}[]} inventario
+ * @returns {string[]}
+ */
+function ordenar_inventario(inventario)
+</code></pre>
+<p>que devuelva un array con los nombres de los objetos del inventario ordenado conforme a las reglas</p>
+<p><code>inventario</code> podrá ser:</p>
+<ul>
+    <li>una cadena de texto, con múltiples líneas, una por elemento del inventario</li>
+    <li>un array de cadenas de texto con la descripción de un objeto del inventario</li>
+    <li>un array de objetos con las propiedades indicadas en la anotación <em>typescript</em></li>
+</ul>
+<p>La función deberá validar la entrada, devolviendo un array vacío en caso de error</p>
+<h3 id="recomendación-2">Recomendación</h3>
+<p>
+    Crea dos funciones auxiliares para realizar el &#39;parseo&#39; de <code>inventario</code>, cuando sea una cadena de texto
+    o un array de cadenas de texto
+</p>
+<h3 id="entrega-6">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>los-tesoros-de-la-tumba-de-tutankamon.js</code></li>
+</ul>
+<hr>
+<h2 id="los-tesoros-de-la-tumba-de-tutankamon-version-2">Los tesoros de la tumba de Tutankamón, versión 2</h2>
+<p>
+    Una página HTML sencilla para probar el código anterior.
+    Tendrá un <code>&lt;textarea&gt;</code> para indicar el inventario (un elemento por línea) y un botón de &quot;ordenar&quot;
+</p>
+<p>
+    Al pulsar el botón, mostrará, en una tabla, el resultado de la ordenación. La tabla tendrá tres columnas
+    (crear el correspondiente <code>&lt;thead&gt;</code>) &quot;Objeto&quot;, &quot;Valor&quot;, &quot;Peso&quot; y para cada objeto
+    se mostrará su nombre, valor y peso
+</p>
+<p>Cada vez que se pase un inventario nuevo, la tabla ya existente se borrará</p>
+<h3 id="entrega-7">Entrega</h3>
+<ul>
+    <li>
+        Un único archivo .js con el código estrictamente necesario para la versión 2, llamado <code>los-tesoros-de-la-tumba-de-tutankamon-v2.js</code><ul>
+            <li>No debe incluir el código de la función de cálculo</li>
+        </ul>
+    </li>
+    <li>
+        Un único archivo .html con el código web, llamado <code>los-tesoros-de-la-tumba-de-tutankamon.html</code><ul>
+            <li>Deberá, obviamente, referenciar <code>los-tesoros-de-la-tumba-de-tutankamon.js</code></li>
+        </ul>
+    </li>
+</ul>
+<hr>
+<h2 id="tabla-rosetta-champollion">Tabla Rosetta (Champollion)</h2>
+<h3 id="descripción-general-4">Descripción general</h3>
+<p><a href="https://www.aceptaelreto.com/problem/statement.php?id=660&amp;cat=154">https://www.aceptaelreto.com/problem/statement.php?id=660&amp;cat=154</a></p>
+<h3 id="adaptación-a-javascript-y-dwec-4">Adaptación a JavaScript y DWEC</h3>
+<p>Escribiremos una primera versión que &#39;calcule&#39; las sílabas de una palabra.</p>
+<p>
+    En concreto, una función que devuelva un array con las sílabas, entendiendo
+    por sílaba la definición dada en la descripción general. Si la cadena está en blanco, devolverá un array vacío
+</p>
+<pre><code>/**
+ * @param {string} palabra
+ * @returns {string[]}
+ */
+function descomponer_silabas(palabra)
+</code></pre>
+<p>Por ejemplo, <code>&quot;Nefertari&quot;</code> -&gt; <code>[&quot;Ne&quot;, &quot;fer&quot;, &quot;ta&quot;, &quot;ri&quot;]</code>.</p>
+<p>Contrariamente a la descripción general, nuestra función en JS deberá aceptar palabras con un número arbitrario de sílabas</p>
+<h3 id="aclaración-importante">Aclaración importante</h3>
+<p>
+    La definición de sílaba no es ciertamente válida en todos los casos para español. Por ejemplo, la palabra &quot;quicio&quot;
+    está formada por las sílabas &quot;qui&quot; y &quot;cio&quot;. Sin embargo, con la definición de sílaba dada, tendríamos
+    <code>&quot;Quicio&quot;</code> -&gt; <code>[&quot;Qu&quot;, &quot;i&quot;, &quot;ci&quot;, &quot;o&quot;]</code>. La implementación debe seguir la definición de sílaba que se ha dado, y no la definición de sílaba en español.
+</p>
+<h3 id="entrega-8">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>tabla-rosetta-champollion.js</code></li>
+</ul>
+<hr>
+<h2 id="tabla-rosetta-champollion-version-2">Tabla Rosetta (Champollion), versión 2</h2>
+<p>Ampliaremos a calcular sílabas de una frase, mediante una función</p>
+<pre><code>/**
+ * @param {string} frase
+ * @returns {string[]}
+ */
+function descomponer_frase_silabas(frase)
+</code></pre>
+<p>
+    Devolverá un array con las sílabas de la frase, insertando un string vacío entre palabras
+    Por ejemplo <code>&quot;mi mama me mima&quot;</code> -&gt; <code>[&quot;mi&quot;, &quot;&quot;, &quot;ma&quot;, &quot;ma&quot;, &quot;&quot;, &quot;me&quot;, &quot;&quot;, &quot;mi&quot;, &quot;ma&quot;]</code>
+</p>
+<p>
+    Contrariamente a la descripción general, nuestra función en JS deberá aceptar frases con un número arbitrario de palabras.
+    Así mismo, deberá aceptar que haya más de un espacio entre palabras o espacios al principio o al final.
+    Si <code>frase</code> está &quot;en blanco&quot; (cadena vacía o solo espacios), devolverá un array vacío.
+</p>
+<h3 id="entrega-9">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>tabla-rosetta-champollion-version-2.js</code></li>
+</ul>
+<hr>
+<h2 id="tabla-rosetta-champollion-version-3">Tabla Rosetta (Champollion), versión 3</h2>
+<p>
+    Implementaremos el problema completo, es decir, dada una frase calcular el número de jeroglíficos (sílabas)
+    únicos necesarios para escribirla, mediante una función
+</p>
+<pre><code>/**
+ * @param {string} frase
+ * @returns {number}
+ */
+function contar_silabas_unicas(frase)
+</code></pre>
+<p>Donde <code>frase</code> seguirá las normas que hemos indicado en la versión 2 para la función <code>descomponer_frase_silabas</code></p>
+<p><em>Aclaración:</em></p>
+<ul>
+    <li>La separación entre palabras NO cuenta como una sílaba</li>
+    <li>La comparación de sílabas única ignorará mayúsculas y minúsculas. Así &quot;Ram&quot; y &quot;ram&quot; son la misma sílaba</li>
+</ul>
+<h3 id="entrega-10">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>tabla-rosetta-champollion-version-3.js</code></li>
+</ul>
+<hr>
+<h2 id="el-tarot-egipcio">El tarot egipcio</h2>
+<h3 id="descripción-general-5">Descripción general</h3>
+<p><a href="https://es.wikipedia.org/wiki/Tarot_Egipcio">https://es.wikipedia.org/wiki/Tarot_Egipcio</a></p>
+<p>
+    Obviando el tema esotérico, un problema muy interesante desde el punto de vista informático es el de &quot;barajar&quot; o &quot;desordenar&quot; una baraja de cartas o un conjunto de datos.
+    Más en concreto, la generación de una permutación al azar de un conjunto de datos (normalmente guardados en un array)
+</p>
+<p>Se trata de escribir una función que &quot;baraje&quot; un array.</p>
+<p>
+    La restricción principal que se solicita es que no debe devolver un nuevo array; debe manipular directamente el array que se le ha pasado.
+    Idealmente, tampoco debiera utilizar arrays auxiliares o precisar memoria extra mientras se &quot;baraja&quot; el array.
+</p>
+<p>Así, la signatura de la función será</p>
+<pre><code>/**
+ * @param {any[]} array
+ * @returns {void}
+ */
+function barajar(array)
+</code></pre>
+<p>Si <code>array</code> no es un array o si está vacío, la función terminará inmediatamente</p>
+<h3 id="entrega-11">Entrega</h3>
+<ul>
+    <li>Un único archivo .js con el código, llamado <code>tarot-egipcio.js</code></li>
+</ul>
+<hr>
+<h2 id="el-tarot-egipcio-version-2">El tarot egipcio, versión 2</h2>
+<h3 id="descripción-general-6">Descripción general</h3>
+<p>
+    Otra actividad que se suele hacer en el tarot es sacar una o más cartas &quot;al azar&quot;. Se pide implementar una función
+    que devuelva &quot;al azar&quot; &#39;n&#39; elementos de un array dado. Así, la función sería
+</p>
+<pre><code>/**
+ * @param {any[]} array
+ * @param {number} numero
+ * @returns {any[]}
+ */
+function sacar_al_azar(array, numero)
+</code></pre>
+<ul>
+    <li>Si <code>array</code> no es un array, está vacío, o &#39;numero&#39; es menor de 1, devolverá un array vacío</li>
+    <li>Si <code>numero</code> es mayor o igual que la longitud del array, devolverá el array &quot;barajado&quot;</li>
+    <li>Si <code>numero</code> es menor de la longitud del array, devolverá un array de longitud &#39;numero&#39; con los elementos extraídos &quot;al azar&quot; de <code>array</code></li>
+</ul>
+<p>Se valorará positivamente hacer un uso óptimo de la memoria y del número de pasos necesarios para obtener el array de resultado</p>
+<h3 id="entrega-12">Entrega</h3>
+<ul>
+    <li>
+        Un único archivo .js con el código, llamado <code>tarot-egipcio-parte-2.js</code><ul>
+            <li>Este código será <strong>independiente</strong> del código entregado en <code>tarot-egipcio.js</code></li>
+        </ul>
+    </li>
+</ul>
